@@ -1,3 +1,1 @@
-$.modal = function(){
-    
-}
+const myModal = $.modal()
