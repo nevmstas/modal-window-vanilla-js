@@ -6,7 +6,7 @@ function noop(){}
 
 function _createModalFooter(buttons = []){
     if(buttons.length === 0){
-        document.createElement('div')
+        return document.createElement('div')
     }
 
     const wrap = document.createElement('div')
@@ -70,6 +70,9 @@ $.modal = function(options){
             setTimeout(()=>{
                 $modal.classList.remove('hide')
                 closing = false
+                if(typeof options.onClose === 'function'){
+                    options.onClose()
+                }
             }, ANIMATION_SPEED)
         }
     }
